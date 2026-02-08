@@ -1,10 +1,9 @@
-const { transform } = require('stream');
-const { buffer } = require('stream/consumers');
-class ProcessStream extends transform {
+const { Transform } = require('stream');
+class ProcessStream extends Transform {
   _transform(chunk, encoding, callback) {
     try {
       const process = chunk.toString().toUpperCase();
-      this.push(buffer.from(process));  
+      this.push(Buffer.from(process));  
       callback();
     } catch (error) {
       callback(error);

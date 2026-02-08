@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const UpEmitter = require('../events/upEmitter');
-const ProcessStream = require('./processStream');
+const ProcessStream = require('./proccessStream');
 
 function handleUpload(req, filename) {
   const upDir = path.join(__dirname, '..', 'uploads');
@@ -31,7 +31,7 @@ function handleUpload(req, filename) {
 
   const processStream = new ProcessStream()
   const processWrite = fs.createWriteStream(procPath)
-  const readStream = fs.createReadStream(upPath)
+  fs.createReadStream(upPath)
   .pipe(processStream)
     .pipe(processWrite)   
     .on('finish', () => {
