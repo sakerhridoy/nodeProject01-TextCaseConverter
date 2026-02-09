@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const UpEmitter = require('../events/upEmitter');
-const ProcessStream = require('./proccessStream');
+const ProcessStream = require('./processStream');
 
 function handleUpload(req, filename) {
   const upDir = path.join(__dirname, '..', 'uploads');
